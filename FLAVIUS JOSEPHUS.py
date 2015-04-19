@@ -1,4 +1,4 @@
-def execution(n,m):
+def execution2(n,m):
     circleArray = []
     executionArray = []
     for pos in range(0,n):
@@ -18,8 +18,15 @@ def execution(n,m):
         
 
 def execution(n,m):
-    for pos in range(-1,n-1):
-        if(
+    pos = -1
+    for num in range(0,n):
+        pos = pos + m
+        if(pos<n):
+            print("a",pos)
+        else:
+            pos = pos - n
+            print("b",pos)
+            
             
 def main():
     execution(10,3)

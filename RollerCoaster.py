@@ -1,23 +1,20 @@
 def rOllerCoaster(text):
     lastUpper = False
     newText =''
-    for char in text:
-        
-        if(char.isalpha()):
+    textList = list(text)
+    for pos in range(0,len(textList)):
+        if(textList[pos].isalpha()):
             if(lastUpper == False):
-                newText+=str(char.upper())
+                textList[pos]=textList[pos].upper()
                 lastUpper = True
             else:
-                newText+=str(char.lower())
+                textList[pos]=textList[pos].lower()
                 lastUpper = False
-        else:
-            newText+=str(char)
-    print(newText)
-    return lastUpper
+    return "".join(textList)
                 
 
 def main():
-    rOllerCoaster('tes3223t')
+    print(rOllerCoaster('tes3223t'))
 
 
 main()

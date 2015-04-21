@@ -18,17 +18,31 @@ def execution2(n,m):
         
 
 def execution(n,m):
-    pos = -1
-    for num in range(0,n):
-        pos = pos + m
-        if(pos<n):
-            print("a",pos)
-        else:
-            pos = pos - n
-            print("b",pos)
+    execArray = []
+    circleArray = []
+    for pos in range(0,n):
+        #creates a circle array with every position 0 to n-1
+        circleArray.append(str(pos))
+    executeCount = 0
+    while(len(circleArray)>m-1):
+        executeCount +=m
+        if(executeCount>len(circleArray)):
+            executeCount-=len(circleArray)
+        execArray.append(circleArray.pop(executeCount-1))
+        executeCount-=1
+    
+    print(executeCount,circleArray)
+    while(len(circleArray)>0):
+        if(executeCount>=len(circleArray)):
+            executeCount = 0
+        execArray.append(circleArray.pop(executeCount))
+        print(circleArray)
+    
+    
+    return execArray
             
             
 def main():
-    execution(10,3)
+    print(" ".join(execution(10,3)))
 
 main()
